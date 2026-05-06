@@ -42,6 +42,7 @@ border-radius:999px;
 background:white;
 font-weight:bold;
 cursor:pointer;
+white-space:nowrap;
 }
 
 .category button.active{
@@ -74,12 +75,6 @@ flex:1;
 .product-title{
 font-size:15px;
 font-weight:bold;
-margin-bottom:5px;
-}
-
-.price{
-font-size:24px;
-font-weight:bold;
 margin-bottom:8px;
 }
 
@@ -106,16 +101,32 @@ hidden gems & random finds 👀
 </div>
 
 <div class="category">
-<button class="active">Most Clicked</button>
-<button>Viral Finds</button>
-<button>Home Hacks</button>
-<button>Random Gadget</button>
-<button>Glow Up Picks</button>
+
+<button class="active" onclick="filterProducts('all', this)">
+Most Clicked
+</button>
+
+<button onclick="filterProducts('viral', this)">
+Viral Finds
+</button>
+
+<button onclick="filterProducts('home', this)">
+Home Hacks
+</button>
+
+<button onclick="filterProducts('gadget', this)">
+Random Gadget
+</button>
+
+<button onclick="filterProducts('glow', this)">
+Glow Up Picks
+</button>
+
 </div>
 
 <!-- PRODUCT -->
 
-<div class="product">
+<div class="product viral">
 
 <img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
 
@@ -126,7 +137,7 @@ Mini Desktop Vacuum
 </div>
 
 <a class="buy-btn" href="https://s.shopee.com.my/5q4nDSIRqt">
-Check Here
+👀 Check Here
 </a>
 
 </div>
@@ -134,7 +145,7 @@ Check Here
 
 <!-- PRODUCT -->
 
-<div class="product">
+<div class="product home">
 
 <img src="https://down-my.img.susercontent.com/file/sg-11134201-7rbk7-lm0v7s0example">
 
@@ -144,12 +155,8 @@ Check Here
 Rak Jimat Space
 </div>
 
-<div class="price">
-RM18
-</div>
-
-<a class="buy-btn" href="LINK-AFFILIATE-KAU">
-Click It
+<a class="buy-btn" href="#">
+👀 Check Here
 </a>
 
 </div>
@@ -157,7 +164,7 @@ Click It
 
 <!-- PRODUCT -->
 
-<div class="product">
+<div class="product gadget">
 
 <img src="https://down-my.img.susercontent.com/file/sg-11134201-7rbk7-lm0v7s0example">
 
@@ -167,16 +174,84 @@ Click It
 Mini Fan Portable
 </div>
 
-<div class="price">
-RM15
-</div>
-
-<a class="buy-btn" href="LINK-AFFILIATE-KAU">
-Click It
+<a class="buy-btn" href="#">
+👀 Check Here
 </a>
 
 </div>
 </div>
+
+<!-- PRODUCT -->
+
+<div class="product glow">
+
+<img src="https://down-my.img.susercontent.com/file/sg-11134201-7rbk7-lm0v7s0example">
+
+<div class="product-info">
+
+<div class="product-title">
+Clay Mask Stick Viral
+</div>
+
+<a class="buy-btn" href="#">
+👀 Check Here
+</a>
+
+</div>
+</div>
+
+<!-- PRODUCT -->
+
+<div class="product viral">
+
+<img src="https://down-my.img.susercontent.com/file/sg-11134201-7rbk7-lm0v7s0example">
+
+<div class="product-info">
+
+<div class="product-title">
+Motion Sensor LED
+</div>
+
+<a class="buy-btn" href="#">
+👀 Check Here
+</a>
+
+</div>
+</div>
+
+<script>
+
+function filterProducts(category, button){
+
+let products = document.querySelectorAll('.product');
+
+products.forEach(product => {
+
+if(category === 'all'){
+product.style.display = 'flex';
+}
+
+else if(product.classList.contains(category)){
+product.style.display = 'flex';
+}
+
+else{
+product.style.display = 'none';
+}
+
+});
+
+let buttons = document.querySelectorAll('.category button');
+
+buttons.forEach(btn => {
+btn.classList.remove('active');
+});
+
+button.classList.add('active');
+
+}
+
+</script>
 
 </body>
 </html>
