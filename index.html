@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
 body{
 margin:0;
 padding:20px;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:#f5f5f5;
 color:#111;
 max-width:500px;
@@ -42,6 +43,8 @@ border-radius:999px;
 background:white;
 font-weight:bold;
 cursor:pointer;
+white-space:nowrap;
+transition:0.2s;
 }
 
 .category button.active{
@@ -74,12 +77,6 @@ flex:1;
 .product-title{
 font-size:15px;
 font-weight:bold;
-margin-bottom:5px;
-}
-
-.price{
-font-size:24px;
-font-weight:bold;
 margin-bottom:8px;
 }
 
@@ -105,9 +102,11 @@ font-weight:bold;
 hidden gems & random finds 👀
 </div>
 
+<!-- BUTTONS -->
+
 <div class="category">
 
-<button class="active" onclick="filterProducts('click', this)">
+<button class="active" onclick="filterProducts('most', this)">
 Most Clicked
 </button>
 
@@ -129,9 +128,9 @@ Glow Up Picks
 
 </div>
 
-<!-- PRODUCT -->
+<!-- MOST CLICKED -->
 
-<div class="product click">
+<div class="product most">
 
 <img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
 
@@ -141,18 +140,37 @@ Glow Up Picks
 Mini Desktop Vacuum
 </div>
 
-<a class="buy-btn" href="https://s.shopee.com.my/5q4nDSIRqt">
-Check Here
+<a class="buy-btn" href="#">
+👀 Check Here
 </a>
 
 </div>
 </div>
 
-<!-- PRODUCT -->
+<!-- VIRAL -->
 
 <div class="product viral">
 
-<img src="https://down-my.img.susercontent.com/file/sg-11134201-7rbk7-lm0v7s0example">
+<img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
+
+<div class="product-info">
+
+<div class="product-title">
+Motion Sensor LED
+</div>
+
+<a class="buy-btn" href="#">
+👀 Check Here
+</a>
+
+</div>
+</div>
+
+<!-- HOME -->
+
+<div class="product home">
+
+<img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
 
 <div class="product-info">
 
@@ -160,22 +178,18 @@ Check Here
 Rak Jimat Space
 </div>
 
-<div class="price">
-RM18
-</div>
-
-<a class="buy-btn" href="LINK-AFFILIATE-KAU">
-Click It
+<a class="buy-btn" href="#">
+👀 Check Here
 </a>
 
 </div>
 </div>
 
-<!-- PRODUCT -->
+<!-- GADGET -->
 
-<div class="product home">
+<div class="product gadget">
 
-<img src="https://down-my.img.susercontent.com/file/sg-11134201-7rbk7-lm0v7s0example">
+<img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
 
 <div class="product-info">
 
@@ -183,16 +197,67 @@ Click It
 Mini Fan Portable
 </div>
 
-<div class="price">
-RM15
-</div>
-
-<a class="buy-btn" href="LINK-AFFILIATE-KAU">
-Click It
+<a class="buy-btn" href="#">
+👀 Check Here
 </a>
 
 </div>
 </div>
+
+<!-- GLOW -->
+
+<div class="product glow">
+
+<img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
+
+<div class="product-info">
+
+<div class="product-title">
+Clay Mask Stick Viral
+</div>
+
+<a class="buy-btn" href="#">
+👀 Check Here
+</a>
+
+</div>
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+
+function filterProducts(category, button){
+
+let products = document.querySelectorAll('.product');
+
+products.forEach(product => {
+
+if(product.classList.contains(category)){
+product.style.display = 'flex';
+}
+
+else{
+product.style.display = 'none';
+}
+
+});
+
+let buttons = document.querySelectorAll('.category button');
+
+buttons.forEach(btn => {
+btn.classList.remove('active');
+});
+
+button.classList.add('active');
+
+}
+
+window.onload = function(){
+filterProducts('most', document.querySelector('.category button'));
+}
+
+</script>
 
 </body>
 </html>
