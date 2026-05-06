@@ -10,6 +10,7 @@
 <style>
 
 body{
+scroll-behavior:smooth;
 margin:0;
 padding:20px;
 font-family:Arial,sans-serif;
@@ -36,6 +37,10 @@ overflow-x:auto;
 margin-bottom:25px;
 }
 
+.category a{
+text-decoration:none;
+}
+
 .category button{
 border:none;
 padding:10px 18px;
@@ -44,12 +49,19 @@ background:white;
 font-weight:bold;
 cursor:pointer;
 white-space:nowrap;
+}
+
+.category button:hover{
+background:#111;
+color:white;
 transition:0.2s;
 }
 
-.category button.active{
-background:#111;
-color:white;
+.section-title{
+font-size:24px;
+font-weight:bold;
+margin-top:35px;
+margin-bottom:20px;
 }
 
 .product{
@@ -106,31 +118,35 @@ hidden gems & random finds 👀
 
 <div class="category">
 
-<button class="active" onclick="filterProducts('most', this)">
-Most Clicked
-</button>
+<a href="#most">
+<button>Most Clicked</button>
+</a>
 
-<button onclick="filterProducts('viral', this)">
-Viral Finds
-</button>
+<a href="#viral">
+<button>Viral Finds</button>
+</a>
 
-<button onclick="filterProducts('home', this)">
-Home Hacks
-</button>
+<a href="#home">
+<button>Home Hacks</button>
+</a>
 
-<button onclick="filterProducts('gadget', this)">
-Random Gadget
-</button>
+<a href="#gadget">
+<button>Random Gadget</button>
+</a>
 
-<button onclick="filterProducts('glow', this)">
-Glow Up Picks
-</button>
+<a href="#glow">
+<button>Glow Up Picks</button>
+</a>
 
 </div>
 
 <!-- MOST CLICKED -->
 
-<div class="product most">
+<div id="most" class="section-title">
+🔥 Most Clicked
+</div>
+
+<div class="product">
 
 <img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
 
@@ -149,7 +165,11 @@ Mini Desktop Vacuum
 
 <!-- VIRAL -->
 
-<div class="product viral">
+<div id="viral" class="section-title">
+✨ Viral Finds
+</div>
+
+<div class="product">
 
 <img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
 
@@ -168,7 +188,11 @@ Motion Sensor LED
 
 <!-- HOME -->
 
-<div class="product home">
+<div id="home" class="section-title">
+🏠 Home Hacks
+</div>
+
+<div class="product">
 
 <img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
 
@@ -187,7 +211,11 @@ Rak Jimat Space
 
 <!-- GADGET -->
 
-<div class="product gadget">
+<div id="gadget" class="section-title">
+🔌 Random Gadget
+</div>
+
+<div class="product">
 
 <img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
 
@@ -206,7 +234,11 @@ Mini Fan Portable
 
 <!-- GLOW -->
 
-<div class="product glow">
+<div id="glow" class="section-title">
+💆 Glow Up Picks
+</div>
+
+<div class="product">
 
 <img src="https://down-my.img.susercontent.com/file/b68fc5392ba9ec03edce5f20f837bb22.webp">
 
@@ -222,42 +254,6 @@ Clay Mask Stick Viral
 
 </div>
 </div>
-
-<!-- SCRIPT -->
-
-<script>
-
-function filterProducts(category, button){
-
-let products = document.querySelectorAll('.product');
-
-products.forEach(product => {
-
-if(product.classList.contains(category)){
-product.style.display = 'flex';
-}
-
-else{
-product.style.display = 'none';
-}
-
-});
-
-let buttons = document.querySelectorAll('.category button');
-
-buttons.forEach(btn => {
-btn.classList.remove('active');
-});
-
-button.classList.add('active');
-
-}
-
-window.onload = function(){
-filterProducts('most', document.querySelector('.category button'));
-}
-
-</script>
 
 </body>
 </html>
